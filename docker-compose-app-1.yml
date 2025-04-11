@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  wikijs-app-1:
+    image: requarks/wiki:2
+    container_name: wikijs-app-1
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3001:3000"
