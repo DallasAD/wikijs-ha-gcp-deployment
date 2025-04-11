@@ -8,6 +8,12 @@ docker compose up -d wikijs-db wikijs-app-1
 ## This allows app-2 too sync with the account app-1 made and allows the load balancer to work. Access via load balancer IP:8080
 docker compose up -d wikijs-app-2 wikijs-lb
 
+# Order that things need to start up
+1. Database
+2. App 1    # Need to make an account first before starting App 2
+3. App 2    # Need to have App 1 and App 2 up before starting the load balancer
+4. Load Balancer 
+
 # To interact with the database directly
 Install one of these GUI Tools:
     PGadmin
