@@ -18,14 +18,7 @@ This project demonstrates the deployment of high-availability, containerized ins
 This deployment provides horizontal scalability, failover tolerance, and persistent storage in a multi-tiered architecture — suitable for real-world cybersecurity operations labs or student infrastructure projects.
 
 ## Links:
-<<<<<<< HEAD
-
-WEBAPP: https://hub.docker.com/r/strangebee/thehive/
-
-WEBAPP DEPENDENCY: https://hub.docker.com/_/elasticsearch
-=======
 WIKI.JS: https://hub.docker.com/r/requarks/wiki
->>>>>>> refs/remotes/origin/main
 
 DATABASE: https://hub.docker.com/_/postgres
 
