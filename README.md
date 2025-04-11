@@ -19,7 +19,7 @@ This deployment provides horizontal scalability, failover tolerance, and persist
 
 ## Links:
 
-WEBAPP: https://hub.docker.com/r/thehiveproject/thehive
+WEBAPP: https://hub.docker.com/r/strangebee/thehive/
 
 WEBAPP DEPENDENCY: https://hub.docker.com/_/elasticsearch
 
