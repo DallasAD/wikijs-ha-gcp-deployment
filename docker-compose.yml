@@ -22,12 +22,6 @@ services:
       - .env
     ports:
       - "3001:3000"
-    healthcheck:
-      test: ["CMD", "pg_isready", "-h", "wikijs-db", "-p", "5432"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
-
 
   wikijs-app-2:
     image: requarks/wiki:2
@@ -39,12 +33,6 @@ services:
       - .env
     ports:
       - "3002:3000"
-    healthcheck:
-      test: ["CMD", "pg_isready", "-h", "wikijs-db", "-p", "5432"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
-
 
   wikijs-lb:
     image: nginx:1.25-alpine
