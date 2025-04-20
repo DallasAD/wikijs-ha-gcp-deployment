@@ -11,7 +11,7 @@ This project demonstrates the deployment of high-availability, containerized ins
 
 💾 Linux Logical Volume Manager (LVM) used for persistent storage of database data
 
-⚙️ Automation scripts to avoid manual orchestration and promote infrastructure-as-code best practices
+⚙️ Automated container management using Docker Swarm to avoid manual orchestration and promote infrastructure-as-code best practices
 
 🔐 Secrets managed securely via environment variables
 
@@ -33,22 +33,23 @@ LOAD BALANCER: https://hub.docker.com/_/nginx
                           |    (Browser)   |
                           +--------+-------+
                                    |
-                            +------+------+
-                            |   NGINX LB  | (Docker)
-			        | (Machine 3) |
-                            +------+------+
-                                   |
-           +-----------------------+-----------------------+
-           |                                               |
-    +------+------+                               +--------+----+
-    |  Wiki.js 1  | (Docker)                      |  Wiki.js 2  | (Docker)
-    | (Machine 1) |                               | (Machine 2) |
-    +------+------+                               +------+------+
-                    \                            /        
-                     v------------+  +----------v           
-                                  |  |                       
-                                  |  |
-    +-----------------------------+--+--------------------------+                       
-    |                     PostgreSQL (Docker)                   |
+                            +------+------+						
+                            |   NGINX LB  | (Docker)					
+			        | (Machine 3) |---------------------------------------------+
+                            +------+------+                                             |
+                                   |         +-------------------------------+          |
+				       |         |                               |          |
+           +-----------------------+---------|-------------+                 |          |
+           |                                 |             |                 |          v
+    +------+------+                          |    +--------+----+	         |      +----------------+
+    |  Wiki.js 1  | (Docker)                 |    |  Wiki.js 2  | (Docker)   +----> |  Docker Swarm  |
+    | (Machine 1) |--------------------------+    | (Machine 2) |------------------>|  (Machine 5)   |
+    +------+------+                               +------+------+                   +----------------+
+                    \                            /                                      ^
+                     v------------+  +----------v                                       |
+                                  |  |                                                  |
+                                  |  |                                                  |
+    +-----------------------------+--+--------------------------+                       |
+    |                     PostgreSQL (Docker)                   |-----------------------+
     |		           (Machine 4)                      |
     +-----------------------------------------------------------+
