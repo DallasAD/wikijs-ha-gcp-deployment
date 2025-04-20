@@ -47,7 +47,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - /home/dallasdesimone/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /root/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     deploy:
       placement:
         constraints:
